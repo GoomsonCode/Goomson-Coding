@@ -1,0 +1,12 @@
+
+
+- type: entity
+  parent: AirlockShuttle
+  id: ScrapyardAnchor
+  name: scrapyard anchor
+  description: Used with the scrapyard console to anchor and pull in ships for salvaging work.
+  components:
+    # Todo Custom sprite- type: Sprite
+  - type: DeviceNetwork
+    deviceNetId: ShipyardNetwork #todo implement network connectivity
+

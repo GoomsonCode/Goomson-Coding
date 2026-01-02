@@ -38,3 +38,41 @@
     guides:
     - Xenobiology
     - Science
+
+#Salvage rework stuff
+
+
+#Todo Add salvage system for summoning derilect ship to nearest airlock, plug it into this or the anchor
+#Make anchor a reskinned airlock??? that it "docks" to
+- type: entity
+  id: ComputerSalvageShipyardConsole
+  parent: BaseComputerAiAccess
+  name: Salvage Scrapyard Console
+  description: Used to manage currently active ships for salvage operations.
+  components:
+    - type: Sprite
+      layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: salvageshipyard
+    - map: ["computerLayerKeys"]
+      state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+    - type: WirelessNetworkConnection
+      range: 1000
+    - type: DeviceLinkSource
+      range: 1000
+      ports: #TODO implement network, see HOW to implement network (Mats silo?)
+        - ShipyardNetwork
+    - type: UserInterface
+      interfaces: #TODO Add custom UI 
+        enum.SalvageMagnetUiKey.Key:
+          type: SalvageMagnetBoundUserInterface
+    - type: AccessReader
+      access: [["Salvage"]] #TODO check access name later
